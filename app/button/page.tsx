@@ -1,5 +1,6 @@
+"use client";
 import React from 'react';
-import Button from "@/components/ui/Button"; // Ensure the casing matches the actual file name
+import Button from "@/components/ui/button"; // Ensure the casing matches the actual file name
 
 const ButtonPage: React.FC = () => {
   return (

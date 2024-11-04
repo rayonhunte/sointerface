@@ -1,6 +1,6 @@
 {
   "name": "sointerface",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/src/index.js",
   "types": "dist/index.d.ts",
   "private": false,
@@ -12,6 +12,7 @@
     "buildComp": "tsc"
   },
   "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@shadcn/ui": "^0.0.4",
     "@tanstack/react-table": "^8.20.5",

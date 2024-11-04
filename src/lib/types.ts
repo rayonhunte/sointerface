@@ -10,6 +10,10 @@ export type TableColumns<T> = ColumnDef<T>[];
 
 export type Payment = BaseColum<{
     status: "Pending" | "Processing" | "Success" | "Failed"
-    amount: string,
+    amount: string | number,
     email: string,
 }>
+
+// header 
+export type SOHeader = string | (() => JSX.Element) | React.ReactNode;
+
