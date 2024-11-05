@@ -1,12 +1,10 @@
 "use client";
 // Import necessary React hooks
 import React, { useEffect, useState } from "react";
-import { SOTable } from "../../src";
+import { SOTable, SOSortButton, SOButton } from "../../src";
 import { Payment } from "@/lib/types";
 import { ColumnDef } from "@tanstack/react-table";
-import Button from "@/components/ui/button";
 import { MoreHorizontal } from "lucide-react";
-import { ArrowUpDown } from "lucide-react"
 
 import {
   DropdownMenu,
@@ -18,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { fetchPayments } from "@/data/paymentData"; // Adjust the import path as necessary
 
+
 // Define columns with simplified cell rendering
 const dfColumns: ColumnDef<Payment>[] = [
   {
@@ -27,15 +26,7 @@ const dfColumns: ColumnDef<Payment>[] = [
   {
     accessorKey: "amount",
     header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => {
-          column.toggleSorting(column.getIsSorted() === "asc");
-        }}
-      >
-        Amount
-        <ArrowUpDown className="ml-2 h-4 w-4" />
-      </Button>
+      <SOSortButton<Payment> column={column} label="Amount" />
     ),
     sortingFn: 'basic',
     cell: ({ row }) => {
@@ -55,19 +46,8 @@ const dfColumns: ColumnDef<Payment>[] = [
   {
     accessorKey: "email",
     header: ({ column }) => {
-      console.log("Current sorting state:", column.getIsSorted());
       return (
-        <Button
-          variant="ghost"
-          onClick={() => {
-            console.log("Toggling sorting...");
-            column.toggleSorting(column.getIsSorted() === "asc");
-            console.log("New sorting state:", column.getIsSorted());
-          }}
-        >
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+       <SOSortButton<Payment> column={column} label="Email" />
       );
     },
     sortingFn: 'basic',
@@ -79,10 +59,10 @@ const dfColumns: ColumnDef<Payment>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
+            <SOButton variant="ghost" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
-            </Button>
+            </SOButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
@@ -132,7 +112,11 @@ const TablePage = () => {
         <SOTable<Payment> columns={dfColumns} data={data}  filterInput={[{
           column: "email",
           placeholder: "Filter by email...",
-        }]}/>
+        }, {
+          column: "status",
+          placeholder: "Filter by status...",
+        }
+        ]}/>
       </div>
     </div>
   );
