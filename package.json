@@ -1,6 +1,6 @@
 {
   "name": "sointerface",
-  "private": false,
+  "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -8,7 +8,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.1",
     "prettier": "^3.2.5",
+    "rollup": "^4.24.4",
+    "tsup": "^8.3.5",
     "turbo": "^2.2.3",
     "typescript": "5.5.4"
   },
