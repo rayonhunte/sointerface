@@ -1,9 +1,14 @@
 {
   "name": "sointerface",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsup",
     "storybook": "start-storybook -p 6006",
