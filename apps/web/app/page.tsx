@@ -1,10 +1,12 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
-
+import { MyButton } from "my-components";
 export default function Home() {
   return (
     <div className={styles.page}>
+      <MyButton label="Click me" onClick={() => alert("Button clicked")} />
       <main className={styles.main}>
         <Image
           className={styles.logo}
