@@ -1,25 +1,18 @@
-import '../src/styles/tailwind.css'; // Ensure TailwindCSS is included
+// tailwind.config.js
+import {nextui} from "@nextui-org/react";
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+const config = {
+  content: [
+   './src/**/*.{js,jsx,ts,tsx}',
+'./.storybook/**/*.{js,jsx,ts,tsx}',
+ "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
     extend: {},
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui()]
 }
 
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
-};
-
+export default config;

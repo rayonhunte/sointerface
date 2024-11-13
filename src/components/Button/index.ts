@@ -1,2 +1,1 @@
-// src/components/Button/index.ts
-export { default } from './Button';
+export {Button} from './Button';

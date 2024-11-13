@@ -1,0 +1,1 @@
+{"version":3,"sources":["base.css"],"names":[],"mappings":"AAAA","file":"index.css","sourcesContent":["@import '@nextui-org/react/dist/styles.css';\n\n/* You can add your custom global styles here */\n:root {\n  /* Custom CSS variables */\n}\n\n.dark {\n  /* Dark mode overrides */\n}"]}
